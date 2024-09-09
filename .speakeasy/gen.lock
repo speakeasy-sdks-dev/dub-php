@@ -21,6 +21,7 @@ features:
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.1
     nameOverrides: 2.81.2
+    nullables: 1.0.0
     responseFormat: 0.1.0
     unions: 0.1.1
 generatedFiles:
@@ -357,8 +358,10 @@ generatedFiles:
   - src/Track.php
   - src/Utils/DateHandler.php
   - src/Utils/DateTimeHandler.php
+  - src/Utils/DefaultRequest.php
   - src/Utils/DefaultResponse.php
   - src/Utils/DefaultStream.php
+  - src/Utils/DefaultUri.php
   - src/Utils/EnumHandler.php
   - src/Utils/FormMetadata.php
   - src/Utils/Headers.php
