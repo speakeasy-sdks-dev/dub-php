@@ -4,7 +4,7 @@ management:
   docChecksum: ddd9d7188e4c29eedabbbc22883ae831
   docVersion: 0.0.1
   speakeasyVersion: internal
-  generationVersion: 2.415.1
+  generationVersion: 2.415.0
   releaseVersion: 0.4.2
   configChecksum: 315b94c4d035317fe45546059d39067b
   repoURL: https://github.com/dubinc/dub-php.git
@@ -12,7 +12,7 @@ management:
   published: true
 features:
   php:
-    core: 3.4.1
+    core: 3.4.2
     deprecations: 2.81.1
     errors: 0.1.2
     examples: 2.81.3
