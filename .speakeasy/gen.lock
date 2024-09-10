@@ -1,10 +1,10 @@
 lockVersion: 2.0.0
 id: 43187d3e-7c3c-4c11-b5d4-4b2334fb6d96
 management:
-  docChecksum: 7c8dd0ae20e4cc445c3ce05b75fe9ca9
+  docChecksum: ddd9d7188e4c29eedabbbc22883ae831
   docVersion: 0.0.1
-  speakeasyVersion: 1.391.3
-  generationVersion: 2.411.5
+  speakeasyVersion: internal
+  generationVersion: 2.415.1
   releaseVersion: 0.4.2
   configChecksum: 315b94c4d035317fe45546059d39067b
   repoURL: https://github.com/dubinc/dub-php.git
@@ -21,6 +21,7 @@ features:
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.1
     nameOverrides: 2.81.2
+    nullables: 1.0.0
     responseFormat: 0.1.0
     unions: 0.1.1
 generatedFiles:
@@ -357,8 +358,10 @@ generatedFiles:
   - src/Track.php
   - src/Utils/DateHandler.php
   - src/Utils/DateTimeHandler.php
+  - src/Utils/DefaultRequest.php
   - src/Utils/DefaultResponse.php
   - src/Utils/DefaultStream.php
+  - src/Utils/DefaultUri.php
   - src/Utils/EnumHandler.php
   - src/Utils/FormMetadata.php
   - src/Utils/Headers.php
@@ -404,6 +407,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: []
   createLink:
     speakeasy-default-create-link:
       requestBody:
@@ -427,6 +432,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: {"id": "<id>", "domain": "lighthearted-kilogram.name", "key": "<key>", "externalId": "<value>", "url": "https://impartial-dump.com", "trackConversion": false, "archived": true, "expiresAt": "<value>", "expiredUrl": "https://staid-garment.org", "password": "uL1dlrnUXohO_B9", "proxy": false, "title": "<value>", "description": "Advanced incremental contingency", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": true, "doIndex": true, "ios": "<value>", "android": "<value>", "publicStats": true, "tagId": "<value>", "tags": [], "comments": "<value>", "shortLink": "http://sweaty-executor.org", "qrCode": "http://impassioned-beast.name", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "1009.66", "lastClicked": "<value>", "leads": "3577.62", "sales": "6519.85", "saleAmount": "1325.85", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
   getLinksCount:
     speakeasy-default-get-links-count:
       responses:
@@ -448,6 +455,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: "2641.66"
   getLinkInfo:
     speakeasy-default-get-link-info:
       parameters:
@@ -473,6 +482,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: {"id": "<id>", "domain": "ringed-blow.name", "key": "<key>", "externalId": "<value>", "url": "https://monumental-spaghetti.name", "trackConversion": false, "archived": true, "expiresAt": "<value>", "expiredUrl": "https://joyous-relative.info", "password": "H9v5zJBmg5IWAUj", "proxy": false, "title": "<value>", "description": "Seamless exuding focus group", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": true, "doIndex": true, "ios": "<value>", "android": "<value>", "publicStats": true, "tagId": "<value>", "tags": [], "comments": "<value>", "shortLink": "http://mundane-bee.biz", "qrCode": "http://fuzzy-fishbone.biz", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "8930.92", "lastClicked": "<value>", "leads": "2433.54", "sales": "21.08", "saleAmount": "7802.62", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
   deleteLink:
     speakeasy-default-delete-link:
       parameters:
@@ -497,6 +508,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: {"id": "<id>"}
   updateLink:
     speakeasy-default-update-link:
       parameters:
@@ -523,6 +536,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: {"id": "<id>", "domain": "tidy-amazon.name", "key": "<key>", "externalId": "<value>", "url": "http://grand-pupa.org", "trackConversion": false, "archived": false, "expiresAt": "<value>", "expiredUrl": "https://limited-hutch.org", "password": "vPKDk8CkuAMJjbG", "proxy": true, "title": "<value>", "description": "Assimilated encompassing pricing structure", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": false, "doIndex": true, "ios": "<value>", "android": "<value>", "publicStats": false, "tagId": "<value>", "tags": [], "comments": "<value>", "shortLink": "http://boiling-latitude.info", "qrCode": "http://exciting-curry.info", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "3529.33", "lastClicked": "<value>", "leads": "6476.71", "sales": "8246.79", "saleAmount": "4518.6", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
   bulkCreateLinks:
     speakeasy-default-bulk-create-links:
       requestBody:
@@ -546,6 +561,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: []
   bulkDeleteLinks:
     speakeasy-default-bulk-delete-links:
       parameters:
@@ -570,6 +587,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: {"deletedCount": "5277.63"}
   bulkUpdateLinks:
     speakeasy-default-bulk-update-links:
       requestBody:
@@ -593,6 +612,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: []
   upsertLink:
     speakeasy-default-upsert-link:
       requestBody:
@@ -616,6 +637,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: {"id": "<id>", "domain": "monthly-hometown.info", "key": "<key>", "externalId": "<value>", "url": "https://honored-equality.info", "trackConversion": false, "archived": true, "expiresAt": "<value>", "expiredUrl": "http://smart-toenail.com", "password": "ZDcrQrPcHBWicBf", "proxy": false, "title": "<value>", "description": "Synergized 3rd generation local area network", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": true, "doIndex": false, "ios": "<value>", "android": "<value>", "publicStats": true, "tagId": "<value>", "tags": [], "comments": "<value>", "shortLink": "https://anguished-wiseguy.org", "qrCode": "https://well-documented-snowman.com", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "8112.06", "lastClicked": "<value>", "leads": "3096.04", "sales": "8082.68", "saleAmount": "4842.28", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
   getQRCode:
     speakeasy-default-get-QR-code:
       parameters:
@@ -640,6 +663,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          image/png: "<value>"
   retrieveAnalytics:
     speakeasy-default-retrieve-analytics:
       parameters:
@@ -669,6 +694,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: []
   listEvents:
     speakeasy-default-list-events:
       parameters:
@@ -698,6 +725,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: []
   getWorkspace:
     speakeasy-default-get-workspace:
       parameters:
@@ -771,6 +800,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: []
   createTag:
     speakeasy-default-create-tag:
       responses:
@@ -792,6 +823,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "201":
+          application/json: {"id": "<id>", "name": "<value>", "color": "blue"}
   updateTag:
     speakeasy-default-update-tag:
       parameters:
@@ -816,6 +849,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: {"id": "<id>", "name": "<value>", "color": "brown"}
   listDomains:
     speakeasy-default-list-domains:
       parameters:
@@ -945,6 +980,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: {"click": {"id": "<id>"}, "customer": {"id": "<id>", "name": "<value>", "email": "Katelin24@hotmail.com", "avatar": "https://loremflickr.com/640/480"}}
   trackSale:
     speakeasy-default-track-sale:
       requestBody:
@@ -968,6 +1005,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: {"eventName": "<value>", "customer": {"id": "<id>", "name": "<value>", "email": "Hoyt_Volkman@hotmail.com", "avatar": "https://loremflickr.com/640/480"}, "sale": {"amount": "59.37", "currency": "Leone", "paymentProcessor": "<value>", "invoiceId": "<value>", "metadata": {"key": "<value>", "key1": "<value>", "key2": "<value>"}}}
   trackCustomer:
     speakeasy-default-track-customer:
       responses:
@@ -989,6 +1028,8 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+        "200":
+          application/json: {"customerId": "<value>", "customerName": "<value>", "customerEmail": "<value>", "customerAvatar": "<value>"}
   getMetatags:
     speakeasy-default-get-metatags:
       parameters:

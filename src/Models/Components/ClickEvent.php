@@ -63,75 +63,75 @@ class ClickEvent
 
     /**
      *
-     * @var string $continent
+     * @var ?string $continent
      */
     #[\JMS\Serializer\Annotation\SerializedName('continent')]
-    public string $continent;
+    public ?string $continent;
 
     /**
      *
-     * @var string $country
+     * @var ?string $country
      */
     #[\JMS\Serializer\Annotation\SerializedName('country')]
-    public string $country;
+    public ?string $country;
 
     /**
      *
-     * @var string $city
+     * @var ?string $city
      */
     #[\JMS\Serializer\Annotation\SerializedName('city')]
-    public string $city;
+    public ?string $city;
 
     /**
      *
-     * @var string $device
+     * @var ?string $device
      */
     #[\JMS\Serializer\Annotation\SerializedName('device')]
-    public string $device;
+    public ?string $device;
 
     /**
      *
-     * @var string $browser
+     * @var ?string $browser
      */
     #[\JMS\Serializer\Annotation\SerializedName('browser')]
-    public string $browser;
+    public ?string $browser;
 
     /**
      *
-     * @var string $os
+     * @var ?string $os
      */
     #[\JMS\Serializer\Annotation\SerializedName('os')]
-    public string $os;
+    public ?string $os;
 
     /**
      *
-     * @var string $referer
+     * @var ?string $referer
      */
     #[\JMS\Serializer\Annotation\SerializedName('referer')]
-    public string $referer;
+    public ?string $referer;
 
     /**
      *
-     * @var string $ip
+     * @var ?string $ip
      */
     #[\JMS\Serializer\Annotation\SerializedName('ip')]
-    public string $ip;
+    public ?string $ip;
 
     /**
      *
-     * @var float $qr
+     * @var ?float $qr
      */
     #[\JMS\Serializer\Annotation\SerializedName('qr')]
-    public float $qr;
+    public ?float $qr;
 
     /**
-     * @param  ?Event  $event
-     * @param  ?string  $timestamp
-     * @param  ?string  $clickId
-     * @param  ?string  $linkId
-     * @param  ?string  $domain
-     * @param  ?string  $key
-     * @param  ?string  $url
+     * @param  Event  $event
+     * @param  string  $timestamp
+     * @param  string  $clickId
+     * @param  string  $linkId
+     * @param  string  $domain
+     * @param  string  $key
+     * @param  string  $url
      * @param  ?string  $continent
      * @param  ?string  $country
      * @param  ?string  $city
@@ -142,7 +142,7 @@ class ClickEvent
      * @param  ?string  $ip
      * @param  ?float  $qr
      */
-    public function __construct(?Event $event = null, ?string $timestamp = null, ?string $clickId = null, ?string $linkId = null, ?string $domain = null, ?string $key = null, ?string $url = null, ?string $continent = null, ?string $country = null, ?string $city = null, ?string $device = null, ?string $browser = null, ?string $os = null, ?string $referer = null, ?string $ip = null, ?float $qr = null)
+    public function __construct(Event $event, string $timestamp, string $clickId, string $linkId, string $domain, string $key, string $url, ?string $continent = null, ?string $country = null, ?string $city = null, ?string $device = null, ?string $browser = null, ?string $os = null, ?string $referer = null, ?string $ip = null, ?float $qr = null)
     {
         $this->event = $event;
         $this->timestamp = $timestamp;
