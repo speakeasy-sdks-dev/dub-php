@@ -20,8 +20,11 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
+use Dub\Models\Components;
 
-Dub\Dub::builder()->setSecurity('DUB_API_KEY');
+$security = new Components\Security(
+    token: "DUB_API_KEY",
+);
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
@@ -68,18 +71,17 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
+use Dub\Models\Components;
 use Dub\Models\Operations;
 
-Dub\Dub::builder()->setSecurity('DUB_API_KEY');
+$security = new Components\Security(
+    token: "DUB_API_KEY",
+);
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\CreateTagRequestBody(
-        name: '<value>',
-        color: Operations\Color::Blue,
-        tag: '<value>',
-    );
+    $request = new Operations\CreateTagRequestBody();
     $response = $sdk->tags->create($request);
 
     if ($response->tagSchema !== null) {
@@ -128,19 +130,18 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
+use Dub\Models\Components;
 use Dub\Models\Operations;
 
-Dub\Dub::builder()->setSecurity('DUB_API_KEY');
+$security = new Components\Security(
+    token: "DUB_API_KEY",
+);
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
 try {
-    $requestBody = new Operations\UpdateTagRequestBody(
-        name: '<value>',
-        color: Operations\UpdateTagColor::Brown,
-        tag: '<value>',
-    );
-    $response = $sdk->tags->update('<value>', $requestBody);
+    $requestBody = new Operations\UpdateTagRequestBody();
+    $response = $sdk->tags->update('<id>', $requestBody);
 
     if ($response->tagSchema !== null) {
         // handle response
