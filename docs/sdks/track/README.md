@@ -20,11 +20,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security();
-$security->token = 'DUB_API_KEY';
+Dub\Dub::builder()->setSecurity('DUB_API_KEY');
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
@@ -88,11 +86,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security();
-$security->token = 'DUB_API_KEY';
+Dub\Dub::builder()->setSecurity('DUB_API_KEY');
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
@@ -102,8 +98,8 @@ try {
         amount: 996500,
         paymentProcessor: Operations\PaymentProcessor::Shopify,
         eventName: 'Purchase',
-        invoiceId: '<value>',
         currency: 'European Unit of Account 17(E.U.A.-17)',
+        invoiceId: '<value>',
         metadata: [
             'Stage' => '<value>',
         ],
@@ -156,11 +152,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security();
-$security->token = 'DUB_API_KEY';
+Dub\Dub::builder()->setSecurity('DUB_API_KEY');
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 

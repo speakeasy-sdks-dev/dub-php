@@ -8,8 +8,7 @@ use Dub;
 use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security();
-$security->token = 'DUB_API_KEY';
+Dub\Dub::builder()->setSecurity('DUB_API_KEY');
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
@@ -18,26 +17,27 @@ try {
         url: 'https://google.com',
         domain: 'lighthearted-kilogram.name',
         key: '<key>',
-        externalId: '123456',
         prefix: '<value>',
         trackConversion: false,
         archived: false,
         publicStats: false,
-        tagId: '<value>',
         tagIds: [
             '<value>',
         ],
         tagNames: '<value>',
+        proxy: false,
+        rewrite: false,
+        doIndex: false,
+        externalId: '123456',
+        tagId: '<value>',
         comments: '<value>',
         expiresAt: '<value>',
         expiredUrl: '<value>',
         password: 'klDuL1dlrnUXohO',
-        proxy: false,
         title: '<value>',
         description: 'User-friendly multi-state frame',
         image: 'https://loremflickr.com/640/480',
         video: '<value>',
-        rewrite: false,
         ios: '<value>',
         android: '<value>',
         geo: new Components\LinkGeoTargeting(
@@ -292,7 +292,6 @@ try {
             ss: '<value>',
             xk: '<value>',
         ),
-        doIndex: false,
         utmSource: '<value>',
         utmMedium: '<value>',
         utmCampaign: '<value>',
@@ -318,8 +317,7 @@ use Dub;
 use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security();
-$security->token = 'DUB_API_KEY';
+Dub\Dub::builder()->setSecurity('DUB_API_KEY');
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
@@ -328,26 +326,27 @@ try {
         url: 'https://google.com',
         domain: 'monthly-hometown.info',
         key: '<key>',
-        externalId: '123456',
         prefix: '<value>',
         trackConversion: false,
         archived: false,
         publicStats: false,
-        tagId: '<value>',
         tagIds: [
             '<value>',
         ],
         tagNames: '<value>',
+        proxy: false,
+        rewrite: false,
+        doIndex: false,
+        externalId: '123456',
+        tagId: '<value>',
         comments: '<value>',
         expiresAt: '<value>',
         expiredUrl: '<value>',
         password: 'Ng7iwZDcrQrPcHB',
-        proxy: false,
         title: '<value>',
         description: 'Organic asynchronous firmware',
         image: 'https://loremflickr.com/640/480',
         video: '<value>',
-        rewrite: false,
         ios: '<value>',
         android: '<value>',
         geo: new Components\LinkGeoTargeting(
@@ -602,7 +601,6 @@ try {
             ss: '<value>',
             xk: '<value>',
         ),
-        doIndex: false,
         utmSource: '<value>',
         utmMedium: '<value>',
         utmCampaign: '<value>',

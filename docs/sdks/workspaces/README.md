@@ -19,10 +19,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 
-$security = new Components\Security();
-$security->token = 'DUB_API_KEY';
+Dub\Dub::builder()->setSecurity('DUB_API_KEY');
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
@@ -76,11 +74,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security();
-$security->token = 'DUB_API_KEY';
+Dub\Dub::builder()->setSecurity('DUB_API_KEY');
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
