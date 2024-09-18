@@ -12,7 +12,7 @@ management:
   published: true
 features:
   php:
-    core: 3.4.3
+    core: 3.4.4
     deprecations: 2.81.1
     errors: 0.1.2
     examples: 2.81.3
