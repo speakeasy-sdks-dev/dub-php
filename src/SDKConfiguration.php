@@ -29,9 +29,9 @@ class SDKConfiguration
 
     public string $sdkVersion = '0.6.2';
 
-    public string $genVersion = '2.415.8';
+    public string $genVersion = '2.421.1';
 
-    public string $userAgent = 'speakeasy-sdk/php 0.6.2 2.415.8 0.0.1 dub/dub-php';
+    public string $userAgent = 'speakeasy-sdk/php 0.6.2 2.421.1 0.0.1 dub/dub-php';
 
     public function getServerUrl(): string
     {

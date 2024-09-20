@@ -221,7 +221,7 @@ $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
 try {
 
-    $response = $sdk->links->get('ringed-blow.name', '<key>', 'clux0rgak00011...', 'ext_123456');
+    $response = $sdk->links->get('rural-mathematics.name', '<key>', 'clux0rgak00011...', 'ext_123456');
 
     if ($response->linkSchema !== null) {
         // handle response
