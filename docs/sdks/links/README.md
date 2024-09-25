@@ -1,4 +1,5 @@
 # Links
+(*links*)
 
 ## Overview
 
@@ -27,21 +28,19 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security(
-    token: "DUB_API_KEY",
-);
+$security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetLinksRequest(
         page: 1,
         pageSize: 50,
     );
-    $response = $sdk->links->list($request);
+    $response = $sdk.links->list(
+        request: $request
+    );
 
     if ($response->linkSchemas !== null) {
         // handle response
@@ -89,15 +88,11 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security(
-    token: "DUB_API_KEY",
-);
+$security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\CreateLinkRequestBody(
         url: 'https://google.com',
@@ -106,7 +101,9 @@ try {
         ],
         externalId: '123456',
     );
-    $response = $sdk->links->create($request);
+    $response = $sdk.links->create(
+        request: $request
+    );
 
     if ($response->linkSchema !== null) {
         // handle response
@@ -154,18 +151,16 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security(
-    token: "DUB_API_KEY",
-);
+$security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\GetLinksCountRequest();
-    $response = $sdk->links->count($request);
+    $response = $sdk.links->count(
+        request: $request
+    );
 
     if ($response->number !== null) {
         // handle response
@@ -213,17 +208,19 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 
-$security = new Components\Security(
-    token: "DUB_API_KEY",
-);
+$security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
-
 try {
 
-    $response = $sdk->links->get('rural-mathematics.name', '<key>', 'clux0rgak00011...', 'ext_123456');
+    $response = $sdk.links->get(
+        domain: 'rural-mathematics.name',
+        key: '<key>',
+        linkId: 'clux0rgak00011...',
+        externalId: 'ext_123456'
+
+    );
 
     if ($response->linkSchema !== null) {
         // handle response
@@ -274,17 +271,15 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 
-$security = new Components\Security(
-    token: "DUB_API_KEY",
-);
+$security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
-
 try {
 
-    $response = $sdk->links->delete('<value>');
+    $response = $sdk.links->delete(
+        linkId: '<value>'
+    );
 
     if ($response->object !== null) {
         // handle response
@@ -332,15 +327,11 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security(
-    token: "DUB_API_KEY",
-);
+$security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
-
 try {
     $requestBody = new Operations\UpdateLinkRequestBody(
         url: 'https://google.com',
@@ -349,7 +340,11 @@ try {
         ],
         externalId: '123456',
     );
-    $response = $sdk->links->update('<value>', $requestBody);
+    $response = $sdk.links->update(
+        linkId: '<value>',
+        requestBody: $requestBody
+
+    );
 
     if ($response->linkSchema !== null) {
         // handle response
@@ -398,20 +393,24 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security(
-    token: "DUB_API_KEY",
-);
+$security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
-
 try {
     $request = [
-        new Operations\RequestBody,
+        new Operations\RequestBody(
+            url: 'https://google.com',
+            tagIds: [
+                'clux0rgak00011...',
+            ],
+            externalId: '123456',
+        ),
     ];
-    $response = $sdk->links->createMany($request);
+    $response = $sdk.links->createMany(
+        request: $request
+    );
 
     if ($response->linkSchemas !== null) {
         // handle response
@@ -459,20 +458,18 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 
-$security = new Components\Security(
-    token: "DUB_API_KEY",
-);
+$security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
-
 try {
 
-    $response = $sdk->links->deleteMany([
-    'clux0rgak00011...',
-    'clux0rgak00022...',
-]);
+    $response = $sdk.links->deleteMany(
+        linkIds: [
+            'clux0rgak00011...',
+            'clux0rgak00022...',
+        ]
+    );
 
     if ($response->object !== null) {
         // handle response
@@ -520,15 +517,11 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security(
-    token: "DUB_API_KEY",
-);
+$security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\BulkUpdateLinksRequestBody(
         linkIds: [
@@ -541,7 +534,9 @@ try {
             ],
         ),
     );
-    $response = $sdk->links->updateMany($request);
+    $response = $sdk.links->updateMany(
+        request: $request
+    );
 
     if ($response->linkSchemas !== null) {
         // handle response
@@ -589,15 +584,11 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security(
-    token: "DUB_API_KEY",
-);
+$security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
-
 try {
     $request = new Operations\UpsertLinkRequestBody(
         url: 'https://google.com',
@@ -606,7 +597,9 @@ try {
         ],
         externalId: '123456',
     );
-    $response = $sdk->links->upsert($request);
+    $response = $sdk.links->upsert(
+        request: $request
+    );
 
     if ($response->linkSchema !== null) {
         // handle response
