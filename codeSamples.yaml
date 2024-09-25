@@ -92,13 +92,13 @@ actions:
       "x-codeSamples":
         - "lang": "php"
           "label": "deleteLink"
-          "source": "declare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse Dub;\nuse Dub\\Models\\Components;\n\n$security = new Components\\Security(\n    token: \"DUB_API_KEY\",\n);\n\n$sdk = Dub\\Dub::builder()->setSecurity($security)->build();\n\ntry {\n\n    $response = $sdk->links->delete('<value>');\n\n    if ($response->object !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+          "source": "declare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse Dub;\nuse Dub\\Models\\Components;\n\n$security = new Components\\Security(\n    token: \"DUB_API_KEY\",\n);\n\n$sdk = Dub\\Dub::builder()->setSecurity($security)->build();\n\ntry {\n\n    $response = $sdk->links->delete('<id>');\n\n    if ($response->object !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
   - target: $["paths"]["/links/{linkId}"]["patch"]
     update:
       "x-codeSamples":
         - "lang": "php"
           "label": "updateLink"
-          "source": "declare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse Dub;\nuse Dub\\Models\\Components;\nuse Dub\\Models\\Operations;\n\n$security = new Components\\Security(\n    token: \"DUB_API_KEY\",\n);\n\n$sdk = Dub\\Dub::builder()->setSecurity($security)->build();\n\ntry {\n    $requestBody = new Operations\\UpdateLinkRequestBody(\n        url: 'https://google.com',\n        externalId: '123456',\n        tagIds: [\n            'clux0rgak00011...',\n        ],\n    );\n    $response = $sdk->links->update('<value>', $requestBody);\n\n    if ($response->linkSchema !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+          "source": "declare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse Dub;\nuse Dub\\Models\\Components;\nuse Dub\\Models\\Operations;\n\n$security = new Components\\Security(\n    token: \"DUB_API_KEY\",\n);\n\n$sdk = Dub\\Dub::builder()->setSecurity($security)->build();\n\ntry {\n    $requestBody = new Operations\\UpdateLinkRequestBody(\n        url: 'https://google.com',\n        externalId: '123456',\n        tagIds: [\n            'clux0rgak00011...',\n        ],\n    );\n    $response = $sdk->links->update('<id>', $requestBody);\n\n    if ($response->linkSchema !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
   - target: $["paths"]["/metatags"]["get"]
     update:
       "x-codeSamples":
@@ -140,19 +140,19 @@ actions:
       "x-codeSamples":
         - "lang": "php"
           "label": "trackCustomer"
-          "source": "declare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse Dub;\nuse Dub\\Models\\Components;\nuse Dub\\Models\\Operations;\n\n$security = new Components\\Security(\n    token: \"DUB_API_KEY\",\n);\n\n$sdk = Dub\\Dub::builder()->setSecurity($security)->build();\n\ntry {\n    $request = new Operations\\TrackCustomerRequestBody(\n        customerId: '<value>',\n    );\n    $response = $sdk->track->customer($request);\n\n    if ($response->object !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+          "source": "declare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse Dub;\nuse Dub\\Models\\Components;\nuse Dub\\Models\\Operations;\n\n$security = new Components\\Security(\n    token: \"DUB_API_KEY\",\n);\n\n$sdk = Dub\\Dub::builder()->setSecurity($security)->build();\n\ntry {\n    $request = new Operations\\TrackCustomerRequestBody(\n        customerId: '<id>',\n    );\n    $response = $sdk->track->customer($request);\n\n    if ($response->object !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
   - target: $["paths"]["/track/lead"]["post"]
     update:
       "x-codeSamples":
         - "lang": "php"
           "label": "trackLead"
-          "source": "declare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse Dub;\nuse Dub\\Models\\Components;\nuse Dub\\Models\\Operations;\n\n$security = new Components\\Security(\n    token: \"DUB_API_KEY\",\n);\n\n$sdk = Dub\\Dub::builder()->setSecurity($security)->build();\n\ntry {\n    $request = new Operations\\TrackLeadRequestBody(\n        clickId: '<value>',\n        eventName: 'Sign up',\n        customerId: '<value>',\n    );\n    $response = $sdk->track->lead($request);\n\n    if ($response->object !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+          "source": "declare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse Dub;\nuse Dub\\Models\\Components;\nuse Dub\\Models\\Operations;\n\n$security = new Components\\Security(\n    token: \"DUB_API_KEY\",\n);\n\n$sdk = Dub\\Dub::builder()->setSecurity($security)->build();\n\ntry {\n    $request = new Operations\\TrackLeadRequestBody(\n        clickId: '<id>',\n        eventName: 'Sign up',\n        customerId: '<id>',\n    );\n    $response = $sdk->track->lead($request);\n\n    if ($response->object !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
   - target: $["paths"]["/track/sale"]["post"]
     update:
       "x-codeSamples":
         - "lang": "php"
           "label": "trackSale"
-          "source": "declare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse Dub;\nuse Dub\\Models\\Components;\nuse Dub\\Models\\Operations;\n\n$security = new Components\\Security(\n    token: \"DUB_API_KEY\",\n);\n\n$sdk = Dub\\Dub::builder()->setSecurity($security)->build();\n\ntry {\n    $request = new Operations\\TrackSaleRequestBody(\n        customerId: '<value>',\n        amount: 996500,\n        paymentProcessor: Operations\\PaymentProcessor::Paddle,\n        eventName: 'Purchase',\n    );\n    $response = $sdk->track->sale($request);\n\n    if ($response->object !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+          "source": "declare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse Dub;\nuse Dub\\Models\\Components;\nuse Dub\\Models\\Operations;\n\n$security = new Components\\Security(\n    token: \"DUB_API_KEY\",\n);\n\n$sdk = Dub\\Dub::builder()->setSecurity($security)->build();\n\ntry {\n    $request = new Operations\\TrackSaleRequestBody(\n        customerId: '<id>',\n        amount: 996500,\n        paymentProcessor: Operations\\PaymentProcessor::Paddle,\n        eventName: 'Purchase',\n    );\n    $response = $sdk->track->sale($request);\n\n    if ($response->object !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
   - target: $["paths"]["/workspaces/{idOrSlug}"]["get"]
     update:
       "x-codeSamples":

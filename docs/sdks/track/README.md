@@ -31,9 +31,9 @@ $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
 try {
     $request = new Operations\TrackLeadRequestBody(
-        clickId: '<value>',
+        clickId: '<id>',
         eventName: 'Sign up',
-        customerId: '<value>',
+        customerId: '<id>',
     );
     $response = $sdk->track->lead($request);
 
@@ -94,7 +94,7 @@ $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
 try {
     $request = new Operations\TrackSaleRequestBody(
-        customerId: '<value>',
+        customerId: '<id>',
         amount: 996500,
         paymentProcessor: Operations\PaymentProcessor::Paddle,
         eventName: 'Purchase',
@@ -158,7 +158,7 @@ $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
 try {
     $request = new Operations\TrackCustomerRequestBody(
-        customerId: '<value>',
+        customerId: '<id>',
     );
     $response = $sdk->track->customer($request);
 

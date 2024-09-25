@@ -284,7 +284,7 @@ $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
 try {
 
-    $response = $sdk->links->delete('<value>');
+    $response = $sdk->links->delete('<id>');
 
     if ($response->object !== null) {
         // handle response
@@ -349,7 +349,7 @@ try {
         ],
         externalId: '123456',
     );
-    $response = $sdk->links->update('<value>', $requestBody);
+    $response = $sdk->links->update('<id>', $requestBody);
 
     if ($response->linkSchema !== null) {
         // handle response
