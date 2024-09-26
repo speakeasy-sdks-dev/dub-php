@@ -26,16 +26,15 @@ use Dub;
 $security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
-try {
-    $response = $sdk.tags->list(
 
-    );
 
-    if ($response->tagSchemas !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->tags->list(
+
+);
+
+if ($response->tagSchemas !== null) {
+    // handle response
 }
 ```
 
@@ -76,17 +75,15 @@ use Dub\Models\Operations;
 $security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
-try {
-    $request = new Operations\CreateTagRequestBody();
-    $response = $sdk.tags->create(
-        request: $request
-    );
 
-    if ($response->tagSchema !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$request = new Operations\CreateTagRequestBody();
+
+$response = $sdk->tags->create(
+    request: $request
+);
+
+if ($response->tagSchema !== null) {
+    // handle response
 }
 ```
 
@@ -132,17 +129,15 @@ use Dub;
 $security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
-try {
 
-    $response = $sdk.tags->delete(
-        id: '<id>'
-    );
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->tags->delete(
+    id: '<id>'
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -189,19 +184,17 @@ use Dub\Models\Operations;
 $security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
-try {
-    $requestBody = new Operations\UpdateTagRequestBody();
-    $response = $sdk.tags->update(
-        id: '<id>',
-        requestBody: $requestBody
 
-    );
+$requestBody = new Operations\UpdateTagRequestBody();
 
-    if ($response->tagSchema !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->tags->update(
+    id: '<id>',
+    requestBody: $requestBody
+
+);
+
+if ($response->tagSchema !== null) {
+    // handle response
 }
 ```
 
