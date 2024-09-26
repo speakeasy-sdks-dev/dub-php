@@ -1,4 +1,5 @@
 # Events
+(*events*)
 
 ## Overview
 
@@ -18,32 +19,28 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security(
-    token: "DUB_API_KEY",
-);
+$security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
-try {
-    $request = new Operations\ListEventsRequest(
-        timezone: 'America/New_York',
-        city: 'New York',
-        device: 'Desktop',
-        browser: 'Chrome',
-        os: 'Windows',
-        referer: 'google.com',
-        refererUrl: 'https://dub.co/blog',
-    );
-    $response = $sdk->events->list($request);
+$request = new Operations\ListEventsRequest(
+    timezone: 'America/New_York',
+    city: 'New York',
+    device: 'Desktop',
+    browser: 'Chrome',
+    os: 'Windows',
+    referer: 'google.com',
+    refererUrl: 'https://dub.co/blog',
+);
 
-    if ($response->clickEvents !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->events->list(
+    request: $request
+);
+
+if ($response->clickEvents !== null) {
+    // handle response
 }
 ```
 

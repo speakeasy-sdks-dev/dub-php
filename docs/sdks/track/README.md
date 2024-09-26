@@ -1,4 +1,5 @@
 # Track
+(*track*)
 
 ## Overview
 
@@ -20,28 +21,24 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security(
-    token: "DUB_API_KEY",
-);
+$security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
-try {
-    $request = new Operations\TrackLeadRequestBody(
-        clickId: '<value>',
-        eventName: 'Sign up',
-        customerId: '<value>',
-    );
-    $response = $sdk->track->lead($request);
+$request = new Operations\TrackLeadRequestBody(
+    clickId: '<id>',
+    eventName: 'Sign up',
+    customerId: '<id>',
+);
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->track->lead(
+    request: $request
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -83,29 +80,25 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security(
-    token: "DUB_API_KEY",
-);
+$security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
-try {
-    $request = new Operations\TrackSaleRequestBody(
-        customerId: '<value>',
-        amount: 996500,
-        paymentProcessor: Operations\PaymentProcessor::Paddle,
-        eventName: 'Purchase',
-    );
-    $response = $sdk->track->sale($request);
+$request = new Operations\TrackSaleRequestBody(
+    customerId: '<id>',
+    amount: 996500,
+    paymentProcessor: Operations\PaymentProcessor::Paddle,
+    eventName: 'Purchase',
+);
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->track->sale(
+    request: $request
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -147,26 +140,22 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Dub;
-use Dub\Models\Components;
 use Dub\Models\Operations;
 
-$security = new Components\Security(
-    token: "DUB_API_KEY",
-);
+$security = 'DUB_API_KEY';
 
 $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
-try {
-    $request = new Operations\TrackCustomerRequestBody(
-        customerId: '<value>',
-    );
-    $response = $sdk->track->customer($request);
+$request = new Operations\TrackCustomerRequestBody(
+    customerId: '<id>',
+);
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->track->customer(
+    request: $request
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
