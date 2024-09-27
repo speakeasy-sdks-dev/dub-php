@@ -60,19 +60,18 @@ if ($response->linkSchemas !== null) {
 
 ### Errors
 
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
 
 ## create
 
@@ -121,19 +120,18 @@ if ($response->linkSchema !== null) {
 
 ### Errors
 
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
 
 ## count
 
@@ -176,19 +174,18 @@ if ($response->number !== null) {
 
 ### Errors
 
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
 
 ## get
 
@@ -237,19 +234,18 @@ if ($response->linkSchema !== null) {
 
 ### Errors
 
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
 
 ## delete
 
@@ -291,19 +287,18 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
 
 ## update
 
@@ -355,19 +350,18 @@ if ($response->linkSchema !== null) {
 
 ### Errors
 
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
 
 ## createMany
 
@@ -418,19 +412,18 @@ if ($response->linkSchemas !== null) {
 
 ### Errors
 
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
 
 ## deleteMany
 
@@ -475,19 +468,18 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
 
 ## updateMany
 
@@ -540,19 +532,18 @@ if ($response->linkSchemas !== null) {
 
 ### Errors
 
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
 
 ## upsert
 
@@ -601,15 +592,15 @@ if ($response->linkSchema !== null) {
 
 ### Errors
 
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
