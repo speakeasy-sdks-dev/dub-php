@@ -12,6 +12,7 @@ management:
   published: true
 features:
   php:
+    constsAndDefaults: 0.1.0
     core: 3.4.9
     deprecations: 2.81.1
     errors: 0.1.4

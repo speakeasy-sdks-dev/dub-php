@@ -30,7 +30,7 @@ $sdk = Dub\Dub::builder()->setSecurity($security)->build();
 
 
 $response = $sdk->domains->list(
-    archived: false,
+    archived: true,
     search: '<value>',
     page: 1,
     pageSize: 50

@@ -278,10 +278,11 @@ class Link
     /**
      * The number of clicks on the short link.
      *
-     * @var float $clicks
+     * @var ?float $clicks
      */
     #[\JMS\Serializer\Annotation\SerializedName('clicks')]
-    public float $clicks;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?float $clicks = null;
 
     /**
      *
@@ -293,26 +294,29 @@ class Link
     /**
      * [BETA]: The number of leads the short links has generated.
      *
-     * @var float $leads
+     * @var ?float $leads
      */
     #[\JMS\Serializer\Annotation\SerializedName('leads')]
-    public float $leads;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?float $leads = null;
 
     /**
      * [BETA]: The number of sales the short links has generated.
      *
-     * @var float $sales
+     * @var ?float $sales
      */
     #[\JMS\Serializer\Annotation\SerializedName('sales')]
-    public float $sales;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?float $sales = null;
 
     /**
      * [BETA]: The total dollar amount of sales the short links has generated (in cents).
      *
-     * @var float $saleAmount
+     * @var ?float $saleAmount
      */
     #[\JMS\Serializer\Annotation\SerializedName('saleAmount')]
-    public float $saleAmount;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?float $saleAmount = null;
 
     /**
      *
@@ -346,11 +350,7 @@ class Link
      * @param  string  $shortLink
      * @param  string  $qrCode
      * @param  string  $workspaceId
-     * @param  float  $clicks
      * @param  string  $lastClicked
-     * @param  float  $leads
-     * @param  float  $sales
-     * @param  float  $saleAmount
      * @param  string  $createdAt
      * @param  string  $updatedAt
      * @param  string  $projectId
@@ -379,8 +379,12 @@ class Link
      * @param  ?string  $utmTerm
      * @param  ?string  $utmContent
      * @param  ?string  $userId
+     * @param  ?float  $clicks
+     * @param  ?float  $leads
+     * @param  ?float  $sales
+     * @param  ?float  $saleAmount
      */
-    public function __construct(string $id, string $domain, string $key, string $url, string $expiresAt, string $shortLink, string $qrCode, string $workspaceId, float $clicks, string $lastClicked, float $leads, float $sales, float $saleAmount, string $createdAt, string $updatedAt, string $projectId, ?string $externalId = null, ?bool $trackConversion = null, ?bool $archived = null, ?string $expiredUrl = null, ?string $password = null, ?bool $proxy = null, ?string $title = null, ?string $description = null, ?string $image = null, ?string $video = null, ?bool $rewrite = null, ?bool $doIndex = null, ?string $ios = null, ?string $android = null, ?ClickEventGeo $geo = null, ?bool $publicStats = null, ?string $tagId = null, ?array $tags = null, ?string $comments = null, ?string $utmSource = null, ?string $utmMedium = null, ?string $utmCampaign = null, ?string $utmTerm = null, ?string $utmContent = null, ?string $userId = null)
+    public function __construct(string $id, string $domain, string $key, string $url, string $expiresAt, string $shortLink, string $qrCode, string $workspaceId, string $lastClicked, string $createdAt, string $updatedAt, string $projectId, ?string $externalId = null, ?bool $trackConversion = null, ?bool $archived = null, ?string $expiredUrl = null, ?string $password = null, ?bool $proxy = null, ?string $title = null, ?string $description = null, ?string $image = null, ?string $video = null, ?bool $rewrite = null, ?bool $doIndex = null, ?string $ios = null, ?string $android = null, ?ClickEventGeo $geo = null, ?bool $publicStats = null, ?string $tagId = null, ?array $tags = null, ?string $comments = null, ?string $utmSource = null, ?string $utmMedium = null, ?string $utmCampaign = null, ?string $utmTerm = null, ?string $utmContent = null, ?string $userId = null, ?float $clicks = 0, ?float $leads = 0, ?float $sales = 0, ?float $saleAmount = 0)
     {
         $this->id = $id;
         $this->domain = $domain;
@@ -390,11 +394,7 @@ class Link
         $this->shortLink = $shortLink;
         $this->qrCode = $qrCode;
         $this->workspaceId = $workspaceId;
-        $this->clicks = $clicks;
         $this->lastClicked = $lastClicked;
-        $this->leads = $leads;
-        $this->sales = $sales;
-        $this->saleAmount = $saleAmount;
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
         $this->projectId = $projectId;
@@ -423,5 +423,9 @@ class Link
         $this->utmTerm = $utmTerm;
         $this->utmContent = $utmContent;
         $this->userId = $userId;
+        $this->clicks = $clicks;
+        $this->leads = $leads;
+        $this->sales = $sales;
+        $this->saleAmount = $saleAmount;
     }
 }
