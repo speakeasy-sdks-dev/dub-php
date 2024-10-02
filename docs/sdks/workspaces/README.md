@@ -48,19 +48,18 @@ if ($response->workspaceSchema !== null) {
 
 ### Errors
 
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
 
 ## update
 
@@ -95,10 +94,10 @@ if ($response->workspaceSchema !== null) {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `idOrSlug`                                                                                     | *string*                                                                                       | :heavy_check_mark:                                                                             | The ID or slug of the workspace to update.                                                     |
-| `requestBody`                                                                                  | [Operations\UpdateWorkspaceRequestBody](../../Models/Operations/UpdateWorkspaceRequestBody.md) | :heavy_minus_sign:                                                                             | N/A                                                                                            |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `idOrSlug`                                                                                      | *string*                                                                                        | :heavy_check_mark:                                                                              | The ID or slug of the workspace to update.                                                      |
+| `requestBody`                                                                                   | [?Operations\UpdateWorkspaceRequestBody](../../Models/Operations/UpdateWorkspaceRequestBody.md) | :heavy_minus_sign:                                                                              | N/A                                                                                             |
 
 ### Response
 
@@ -106,15 +105,15 @@ if ($response->workspaceSchema !== null) {
 
 ### Errors
 
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |

@@ -5,10 +5,57 @@
 
 ### Available Operations
 
-* [create](#create) - Create a new tag
 * [list](#list) - Retrieve a list of tags
-* [update](#update) - Update a tag
+* [create](#create) - Create a new tag
 * [delete](#delete) - Delete a tag
+* [update](#update) - Update a tag
+
+## list
+
+Retrieve a list of tags for the authenticated workspace.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Dub;
+
+$security = 'DUB_API_KEY';
+
+$sdk = Dub\Dub::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->tags->list(
+
+);
+
+if ($response->tagSchemas !== null) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\GetTagsResponse](../../Models/Operations/GetTagsResponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
 
 ## create
 
@@ -51,125 +98,18 @@ if ($response->tagSchema !== null) {
 
 ### Errors
 
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
-
-
-## list
-
-Retrieve a list of tags for the authenticated workspace.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Dub;
-
-$security = 'DUB_API_KEY';
-
-$sdk = Dub\Dub::builder()->setSecurity($security)->build();
-
-
-
-$response = $sdk->tags->list(
-
-);
-
-if ($response->tagSchemas !== null) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\GetTagsResponse](../../Models/Operations/GetTagsResponse.md)**
-
-### Errors
-
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
-
-
-## update
-
-Update a tag in the workspace.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Dub;
-use Dub\Models\Operations;
-
-$security = 'DUB_API_KEY';
-
-$sdk = Dub\Dub::builder()->setSecurity($security)->build();
-
-$requestBody = new Operations\UpdateTagRequestBody();
-
-$response = $sdk->tags->update(
-    id: '<id>',
-    requestBody: $requestBody
-
-);
-
-if ($response->tagSchema !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `id`                                                                               | *string*                                                                           | :heavy_check_mark:                                                                 | The ID of the tag to update.                                                       |
-| `requestBody`                                                                      | [Operations\UpdateTagRequestBody](../../Models/Operations/UpdateTagRequestBody.md) | :heavy_minus_sign:                                                                 | N/A                                                                                |
-
-### Response
-
-**[?Operations\UpdateTagResponse](../../Models/Operations/UpdateTagResponse.md)**
-
-### Errors
-
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
 
 ## delete
 
@@ -211,15 +151,72 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                   | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\BadRequest              | 400                            | application/json               |
-| Errors\Unauthorized            | 401                            | application/json               |
-| Errors\Forbidden               | 403                            | application/json               |
-| Errors\NotFound                | 404                            | application/json               |
-| Errors\Conflict                | 409                            | application/json               |
-| Errors\InviteExpired           | 410                            | application/json               |
-| Errors\UnprocessableEntity     | 422                            | application/json               |
-| Errors\RateLimitExceeded       | 429                            | application/json               |
-| Errors\InternalServerError     | 500                            | application/json               |
-| Dub\Models\Errors.SDKException | 4xx-5xx                        | */*                            |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
+
+## update
+
+Update a tag in the workspace.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Dub;
+use Dub\Models\Operations;
+
+$security = 'DUB_API_KEY';
+
+$sdk = Dub\Dub::builder()->setSecurity($security)->build();
+
+$requestBody = new Operations\UpdateTagRequestBody();
+
+$response = $sdk->tags->update(
+    id: '<id>',
+    requestBody: $requestBody
+
+);
+
+if ($response->tagSchema !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `id`                                                                                | *string*                                                                            | :heavy_check_mark:                                                                  | The ID of the tag to update.                                                        |
+| `requestBody`                                                                       | [?Operations\UpdateTagRequestBody](../../Models/Operations/UpdateTagRequestBody.md) | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+
+### Response
+
+**[?Operations\UpdateTagResponse](../../Models/Operations/UpdateTagResponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\BadRequest          | 400                        | application/json           |
+| Errors\Unauthorized        | 401                        | application/json           |
+| Errors\Forbidden           | 403                        | application/json           |
+| Errors\NotFound            | 404                        | application/json           |
+| Errors\Conflict            | 409                        | application/json           |
+| Errors\InviteExpired       | 410                        | application/json           |
+| Errors\UnprocessableEntity | 422                        | application/json           |
+| Errors\RateLimitExceeded   | 429                        | application/json           |
+| Errors\InternalServerError | 500                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
