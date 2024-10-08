@@ -6,7 +6,7 @@ management:
   speakeasyVersion: internal
   generationVersion: 2.436.3
   releaseVersion: 0.7.0
-  configChecksum: 007f5a8816c52013295fe822a0183d6d
+  configChecksum: 2ebc899cb79584322980a5412fee34b3
   repoURL: https://github.com/dubinc/dub-php.git
   installationURL: https://github.com/dubinc/dub-php
   published: true
@@ -22,6 +22,7 @@ features:
     globalSecurityFlattening: 0.1.1
     globalServerURLs: 2.82.1
     includes: 2.81.1
+    methodArguments: 0.1.0
     nameOverrides: 2.81.2
     nullables: 1.0.0
     responseFormat: 0.1.0

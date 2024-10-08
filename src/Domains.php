@@ -34,12 +34,8 @@ class Domains
      * @return Operations\ListDomainsResponse
      * @throws \Dub\Models\Errors\SDKException
      */
-    public function list(
-        ?bool $archived = null,
-        ?string $search = null,
-        ?float $page = null,
-        ?float $pageSize = null,
-    ): Operations\ListDomainsResponse {
+    public function list(?bool $archived = null, ?string $search = null, ?float $page = null, ?float $pageSize = null): Operations\ListDomainsResponse
+    {
         $request = new Operations\ListDomainsRequest(
             archived: $archived,
             search: $search,
@@ -157,13 +153,12 @@ class Domains
      *
      * Create a domain for the authenticated workspace.
      *
-     * @param  Operations\CreateDomainRequestBody  $request
+     * @param  ?Operations\CreateDomainRequestBody  $request
      * @return Operations\CreateDomainResponse
      * @throws \Dub\Models\Errors\SDKException
      */
-    public function create(
-        ?Operations\CreateDomainRequestBody $request,
-    ): Operations\CreateDomainResponse {
+    public function create(?Operations\CreateDomainRequestBody $request = null): Operations\CreateDomainResponse
+    {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/domains');
         $options = ['http_errors' => false];
@@ -282,9 +277,8 @@ class Domains
      * @return Operations\DeleteDomainResponse
      * @throws \Dub\Models\Errors\SDKException
      */
-    public function delete(
-        string $slug,
-    ): Operations\DeleteDomainResponse {
+    public function delete(string $slug): Operations\DeleteDomainResponse
+    {
         $request = new Operations\DeleteDomainRequest(
             slug: $slug,
         );
@@ -403,10 +397,8 @@ class Domains
      * @return Operations\UpdateDomainResponse
      * @throws \Dub\Models\Errors\SDKException
      */
-    public function update(
-        string $slug,
-        ?Operations\UpdateDomainRequestBody $requestBody = null,
-    ): Operations\UpdateDomainResponse {
+    public function update(string $slug, ?Operations\UpdateDomainRequestBody $requestBody = null): Operations\UpdateDomainResponse
+    {
         $request = new Operations\UpdateDomainRequest(
             slug: $slug,
             requestBody: $requestBody,
