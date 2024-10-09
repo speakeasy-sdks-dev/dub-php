@@ -443,6 +443,8 @@ generatedFiles:
   - src/SDKConfiguration.php
   - src/Tags.php
   - src/Track.php
+  - src/Utils/BigDecimalHandler.php
+  - src/Utils/BigIntHandler.php
   - src/Utils/DateHandler.php
   - src/Utils/DateTimeHandler.php
   - src/Utils/DefaultRequest.php
