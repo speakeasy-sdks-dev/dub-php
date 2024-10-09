@@ -28,6 +28,7 @@ php:
     enabled: false
     svcName: openapi
   maxMethodParams: 4
+  methodArguments: infer-optional-args
   namespace: Dub
   outputModelSuffix: output
   packageName: dub/dub-php
