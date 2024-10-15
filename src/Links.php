@@ -23,26 +23,23 @@ class Links
     }
 
     /**
-     * Create a new link
+     * Retrieve a list of links
      *
-     * Create a new link for the authenticated workspace.
+     * Retrieve a paginated list of links for the authenticated workspace.
      *
-     * @param  ?Operations\CreateLinkRequestBody  $request
-     * @return Operations\CreateLinkResponse
+     * @param  ?Operations\GetLinksRequest  $request
+     * @return Operations\GetLinksResponse
      * @throws \Dub\Models\Errors\SDKException
      */
-    public function create(?Operations\CreateLinkRequestBody $request = null): Operations\CreateLinkResponse
+    public function list(?Operations\GetLinksRequest $request = null): Operations\GetLinksResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/links');
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
-        if ($body !== null) {
-            $options = array_merge_recursive($options, $body);
-        }
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\GetLinksRequest::class, $request));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
 
 
         $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
@@ -52,12 +49,12 @@ class Links
         if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Dub\Models\Components\LinkSchema', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\CreateLinkResponse(
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<\Dub\Models\Components\LinkSchema>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetLinksResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
-                    linkSchema: $obj);
+                    linkSchemas: $obj);
 
                 return $response;
             } else {
@@ -143,23 +140,26 @@ class Links
     }
 
     /**
-     * Retrieve a list of links
+     * Create a new link
      *
-     * Retrieve a paginated list of links for the authenticated workspace.
+     * Create a new link for the authenticated workspace.
      *
-     * @param  ?Operations\GetLinksRequest  $request
-     * @return Operations\GetLinksResponse
+     * @param  ?Operations\CreateLinkRequestBody  $request
+     * @return Operations\CreateLinkResponse
      * @throws \Dub\Models\Errors\SDKException
      */
-    public function list(?Operations\GetLinksRequest $request = null): Operations\GetLinksResponse
+    public function create(?Operations\CreateLinkRequestBody $request = null): Operations\CreateLinkResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/links');
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\GetLinksRequest::class, $request));
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
+        if ($body !== null) {
+            $options = array_merge_recursive($options, $body);
+        }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
 
 
         $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
@@ -169,12 +169,12 @@ class Links
         if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<\Dub\Models\Components\LinkSchema>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\GetLinksResponse(
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Dub\Models\Components\LinkSchema', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\CreateLinkResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
-                    linkSchemas: $obj);
+                    linkSchema: $obj);
 
                 return $response;
             } else {
@@ -503,31 +503,25 @@ class Links
     }
 
     /**
-     * Update a link
+     * Delete a link
      *
-     * Update a link for the authenticated workspace. If there's no change, returns it as it is.
+     * Delete a link for the authenticated workspace.
      *
      * @param  string  $linkId
-     * @param  ?Operations\UpdateLinkRequestBody  $requestBody
-     * @return Operations\UpdateLinkResponse
+     * @return Operations\DeleteLinkResponse
      * @throws \Dub\Models\Errors\SDKException
      */
-    public function update(string $linkId, ?Operations\UpdateLinkRequestBody $requestBody = null): Operations\UpdateLinkResponse
+    public function delete(string $linkId): Operations\DeleteLinkResponse
     {
-        $request = new Operations\UpdateLinkRequest(
+        $request = new Operations\DeleteLinkRequest(
             linkId: $linkId,
-            requestBody: $requestBody,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/links/{linkId}', Operations\UpdateLinkRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/links/{linkId}', Operations\DeleteLinkRequest::class, $request);
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'requestBody', 'json');
-        if ($body !== null) {
-            $options = array_merge_recursive($options, $body);
-        }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);
+        $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
 
 
         $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
@@ -537,12 +531,12 @@ class Links
         if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Dub\Models\Components\LinkSchema', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\UpdateLinkResponse(
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Dub\Models\Operations\DeleteLinkResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\DeleteLinkResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
-                    linkSchema: $obj);
+                    object: $obj);
 
                 return $response;
             } else {
@@ -628,25 +622,31 @@ class Links
     }
 
     /**
-     * Delete a link
+     * Update a link
      *
-     * Delete a link for the authenticated workspace.
+     * Update a link for the authenticated workspace. If there's no change, returns it as it is.
      *
      * @param  string  $linkId
-     * @return Operations\DeleteLinkResponse
+     * @param  ?Operations\UpdateLinkRequestBody  $requestBody
+     * @return Operations\UpdateLinkResponse
      * @throws \Dub\Models\Errors\SDKException
      */
-    public function delete(string $linkId): Operations\DeleteLinkResponse
+    public function update(string $linkId, ?Operations\UpdateLinkRequestBody $requestBody = null): Operations\UpdateLinkResponse
     {
-        $request = new Operations\DeleteLinkRequest(
+        $request = new Operations\UpdateLinkRequest(
             linkId: $linkId,
+            requestBody: $requestBody,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/links/{linkId}', Operations\DeleteLinkRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/links/{linkId}', Operations\UpdateLinkRequest::class, $request);
         $options = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request, 'requestBody', 'json');
+        if ($body !== null) {
+            $options = array_merge_recursive($options, $body);
+        }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
+        $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);
 
 
         $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
@@ -656,12 +656,12 @@ class Links
         if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Dub\Models\Operations\DeleteLinkResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\DeleteLinkResponse(
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Dub\Models\Components\LinkSchema', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\UpdateLinkResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
-                    object: $obj);
+                    linkSchema: $obj);
 
                 return $response;
             } else {
@@ -867,26 +867,26 @@ class Links
     }
 
     /**
-     * Bulk update links
+     * Bulk delete links
      *
-     * Bulk update up to 100 links with the same data for the authenticated workspace.
+     * Bulk delete up to 100 links for the authenticated workspace.
      *
-     * @param  ?Operations\BulkUpdateLinksRequestBody  $request
-     * @return Operations\BulkUpdateLinksResponse
+     * @param  array<string>  $linkIds
+     * @return Operations\BulkDeleteLinksResponse
      * @throws \Dub\Models\Errors\SDKException
      */
-    public function updateMany(?Operations\BulkUpdateLinksRequestBody $request = null): Operations\BulkUpdateLinksResponse
+    public function deleteMany(array $linkIds): Operations\BulkDeleteLinksResponse
     {
+        $request = new Operations\BulkDeleteLinksRequest(
+            linkIds: $linkIds,
+        );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/links/bulk');
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
-        if ($body !== null) {
-            $options = array_merge_recursive($options, $body);
-        }
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\BulkDeleteLinksRequest::class, $request));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);
+        $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
 
 
         $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
@@ -896,12 +896,12 @@ class Links
         if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<\Dub\Models\Components\LinkSchema>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\BulkUpdateLinksResponse(
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Dub\Models\Operations\BulkDeleteLinksResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\BulkDeleteLinksResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
-                    linkSchemas: $obj);
+                    object: $obj);
 
                 return $response;
             } else {
@@ -987,26 +987,26 @@ class Links
     }
 
     /**
-     * Bulk delete links
+     * Bulk update links
      *
-     * Bulk delete up to 100 links for the authenticated workspace.
+     * Bulk update up to 100 links with the same data for the authenticated workspace.
      *
-     * @param  array<string>  $linkIds
-     * @return Operations\BulkDeleteLinksResponse
+     * @param  ?Operations\BulkUpdateLinksRequestBody  $request
+     * @return Operations\BulkUpdateLinksResponse
      * @throws \Dub\Models\Errors\SDKException
      */
-    public function deleteMany(array $linkIds): Operations\BulkDeleteLinksResponse
+    public function updateMany(?Operations\BulkUpdateLinksRequestBody $request = null): Operations\BulkUpdateLinksResponse
     {
-        $request = new Operations\BulkDeleteLinksRequest(
-            linkIds: $linkIds,
-        );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/links/bulk');
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\BulkDeleteLinksRequest::class, $request));
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
+        if ($body !== null) {
+            $options = array_merge_recursive($options, $body);
+        }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
+        $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);
 
 
         $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
@@ -1016,12 +1016,12 @@ class Links
         if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\Dub\Models\Operations\BulkDeleteLinksResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\BulkDeleteLinksResponse(
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<\Dub\Models\Components\LinkSchema>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\BulkUpdateLinksResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
-                    object: $obj);
+                    linkSchemas: $obj);
 
                 return $response;
             } else {
